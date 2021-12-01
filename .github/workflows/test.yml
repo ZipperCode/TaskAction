@@ -32,4 +32,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: 打印环境变量
         run: |
-          echo DSJ_CONFIG
+          echo $DSJ_CONFIG
