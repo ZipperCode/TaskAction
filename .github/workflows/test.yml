@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: test
 
 # Controls when the workflow will run
 on:
@@ -33,4 +33,5 @@ jobs:
       - name: 打印环境变量
         run: |
           echo "dsj_config = $DSJ_CONFIG",
-          echo test, and deploy your project.
+          echo "dsj_config = {{ DSJ_CONFIG }}"
+          echo "dsj_config = ${{ DSJ_CONFIG }}"
