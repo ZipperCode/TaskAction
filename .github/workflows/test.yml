@@ -35,5 +35,6 @@ jobs:
       - name: 打印环境变量
         env:
           DSJ_CONFIG: ${{ secrets.DSJ_CONFIG }}
+          TEST: ${{secrets.TEST}}
         run: |
           java -jar app-1.0-SNAPSHOT.jar
