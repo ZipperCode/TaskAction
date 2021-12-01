@@ -31,5 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: 打印环境变量
+        env:
+          DSJ_CONFIG: "haha"
         run: |
           echo $DSJ_CONFIG
