@@ -1,13 +1,11 @@
-name: TaskKugou
+name: TaskKugou-Kugou
 on:
   push:
-    branches: [ master, task_kugou ]
+    branches: [ task_kugou ]
   pull_request:
     branches: [ task_kugou ]
   schedule:
     - cron: '1 9 * * *'
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   task:
     runs-on: ubuntu-latest
@@ -19,8 +17,6 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-      - name: 开始执行脚本
-        run: echo 打印dsj环境变量
       # 运行
       - name: 运行jar包
         run: java -jar kugou-1.0-SNAPSHOT-all.jar
