@@ -10,10 +10,10 @@ jobs:
   task:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@task_kugou
+      - uses: actions/checkout@v2
       # Java 环境
       - name: 设置Java环境
-        uses: actions/setup-java@task_kugou
+        uses: actions/setup-java@v2
         with:
           java-version: '8'
           distribution: 'adopt'
