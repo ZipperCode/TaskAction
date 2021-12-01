@@ -1,7 +1,7 @@
 name: TaskKugou
 on:
   push:
-    branches: [ task_kugou ]
+    branches: [ master, task_kugou ]
   pull_request:
     branches: [ task_kugou ]
   schedule:
