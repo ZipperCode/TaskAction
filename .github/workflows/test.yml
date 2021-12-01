@@ -33,5 +33,5 @@ jobs:
       - name: 打印环境变量
         run: |
           echo "dsj_config = $DSJ_CONFIG",
-          echo "dsj_config = {{ DSJ_CONFIG }}"
-          echo "dsj_config = ${{ DSJ_CONFIG }}"
+          # echo "dsj_config = {{ DSJ_CONFIG }}"
+          # echo "dsj_config = ${{ DSJ_CONFIG }}"
