@@ -1,7 +1,7 @@
 name: TaskKugou
 on:
   push:
-    branches: [ master, task_kugou ]
+    branches: [ task_kugou ]
   pull_request:
     branches: [ task_kugou ]
   schedule:
@@ -20,7 +20,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: 开始执行脚本
-        run: echo 打印dsj环境变量
+        run: echo 打印环境变量
       # 运行
       - name: 运行jar包
         run: java -jar kugou-1.0-SNAPSHOT-all.jar
