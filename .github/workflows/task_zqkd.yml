@@ -1,13 +1,12 @@
 name: TaskKugou
 on:
-  push:
-    branches: [ task_kugou ]
-  pull_request:
-    branches: [ task_kugou ]
+#   push:
+#     branches: [ task_kugou ]
+#   pull_request:
+#     branches: [ task_kugou ]
   schedule:
-    - cron: '1 8 * * *'
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    - cron: '30 5,17 * * *'
+    
 jobs:
   task:
     runs-on: ubuntu-latest
@@ -23,4 +22,6 @@ jobs:
         run: echo 打印dsj环境变量
       # 运行
       - name: 运行jar包
-        run: java -jar kugou-1.0-SNAPSHOT-all.jar
+        env:
+          ZQKD_CONFIG: ${{secrets.ZQKD_CONFIG}}
+        run: java -jar zqkd-1.0-SNAPSHOT-all.jar
