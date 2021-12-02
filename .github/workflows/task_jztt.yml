@@ -24,4 +24,4 @@ jobs:
       - name: 运行jar包
         env:
           JZTT_CONFIG: ${{secrets.JZTT_CONFIG}}
-        run: java -jar zqkd-1.0-SNAPSHOT-all.jar
+        run: java -jar jztt-1.0-SNAPSHOT-all.jar
