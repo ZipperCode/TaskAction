@@ -5,7 +5,7 @@ on:
 #   pull_request:
 #     branches: [ task_kugou ]
   schedule:
-    - cron: '1 17 * * *'
+    - cron: '1 10 * * *'
 jobs:
   task:
     runs-on: ubuntu-latest
