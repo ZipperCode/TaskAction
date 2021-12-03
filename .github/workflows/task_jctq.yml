@@ -1,4 +1,4 @@
-name: 晶彩天气
+name: 晶彩天气-Branch
 on:
 #   push:
 #     branches: [ task_kugou ]
@@ -19,9 +19,9 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: 开始执行脚本
-        run: echo 打印dsj环境变量
+        run: echo 晶彩天气 task_jctq 分支执行，空执行
       # 运行
-      - name: 运行jar包
-        env:
-          JCTQ_CONFIG: ${{secrets.JCTQ_CONFIG}}
-        run: java -jar jctq-1.0-SNAPSHOT-all.jar
+#       - name: 运行jar包
+#         env:
+#           JCTQ_CONFIG: ${{secrets.JCTQ_CONFIG}}
+#         run: java -jar jctq-1.0-SNAPSHOT-all.jar
