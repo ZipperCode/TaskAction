@@ -1,9 +1,9 @@
-name: 晶彩看点
+name: 晶彩看点-Branch
 on:
-  push:
-    branches: [ task_kugou ]
-  pull_request:
-    branches: [ task_kugou ]
+#   push:
+#     branches: [ task_kugou ]
+#   pull_request:
+#     branches: [ task_kugou ]
   schedule:
     - cron: '30 8 * * *'
     
