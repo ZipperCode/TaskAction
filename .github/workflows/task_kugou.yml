@@ -1,11 +1,7 @@
-name: TaskKugou-Master
+name: 酷狗
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ task_kugou ]
   schedule:
-    - cron: '1 8 * * *'
+    - cron: '10 0,8,16 * * *'
 jobs:
   task:
     runs-on: ubuntu-latest
@@ -19,4 +15,6 @@ jobs:
           distribution: 'adopt'
       # 运行
       - name: 运行jar包
+        env:
+          KG_CONFIG: ${{secrets.KG_CONFIG}}
         run: java -jar kugou-1.0-SNAPSHOT-all.jar

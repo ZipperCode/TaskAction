@@ -1,11 +1,7 @@
-name: TaskZqkd
+name: 中青看点
 on:
-  push:
-    branches: [ task_zqkd ]
-  pull_request:
-    branches: [ task_zqkd ]
   schedule:
-    - cron: '1 10 * * *'
+    - cron: '1 10,15 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,4 +17,6 @@ jobs:
           distribution: 'adopt'
       # 运行
       - name: 开始执行脚本,运行jar包
+        env:
+          ZQKD_CONFIG: ${{secrets.ZQKD_CONFIG}}
         run: java -jar zqkd-1.0-SNAPSHOT-all.jar

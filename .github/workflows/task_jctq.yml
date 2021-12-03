@@ -1,23 +1,8 @@
-<<<<<<< HEAD:.github/workflows/task_kugou.yml
-name: TaskKugou-Master
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ task_kugou ]
-  schedule:
-    - cron: '1 8 * * *'
-=======
 name: 晶彩天气
 on:
-#   push:
-#     branches: [ task_kugou ]
-#   pull_request:
-#     branches: [ task_kugou ]
   schedule:
-    - cron: '30 8 * * *'
+    - cron: '30 12,16 * * *'
     
->>>>>>> bb2007bfcf745837841e3a9ea45d7c6527c50d68:.github/workflows/task_jctq.yml
 jobs:
   task:
     runs-on: ubuntu-latest
