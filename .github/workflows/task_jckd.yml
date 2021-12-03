@@ -1,9 +1,9 @@
 name: 晶彩看点
 on:
-#   push:
-#     branches: [ task_kugou ]
-#   pull_request:
-#     branches: [ task_kugou ]
+  push:
+    branches: [ task_kugou ]
+  pull_request:
+    branches: [ task_kugou ]
   schedule:
     - cron: '30 8 * * *'
     
@@ -19,9 +19,9 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: 开始执行脚本
-        run: echo 打印dsj环境变量
+        run: echo 晶彩看点 task_jckd 分支执行，空运行
       # 运行
-      - name: 运行jar包
-        env:
-          JCKD_CONFIG: ${{secrets.JCKD_CONFIG}}
-        run: java -jar jckd-1.0-SNAPSHOT-all.jar
+#       - name: 运行jar包
+#         env:
+#           JCKD_CONFIG: ${{secrets.JCKD_CONFIG}}
+#         run: java -jar jckd-1.0-SNAPSHOT-all.jar
