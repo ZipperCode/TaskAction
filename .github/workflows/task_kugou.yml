@@ -1,4 +1,4 @@
-name: TaskKugou-Kugou
+name: 酷狗-Branch
 on:
 #   push:
 #     branches: [ task_kugou ]
@@ -17,8 +17,10 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
+      - name: echo
+        run: echo 酷狗分支空执行
       # 运行
-      - name: 运行jar包
-        env:
-          KG_CONFIG: ${{secrets.KG_CONFIG}}
-        run: java -jar kugou-1.0-SNAPSHOT-all.jar
+#       - name: 运行jar包
+#         env:
+#           KG_CONFIG: ${{secrets.KG_CONFIG}}
+#         run: java -jar kugou-1.0-SNAPSHOT-all.jar
