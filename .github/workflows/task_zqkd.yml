@@ -1,4 +1,4 @@
-name: 中青看点
+name: 中青看点-Branch
 on:
 #   push:
 #     branches: [ task_kugou ]
@@ -19,9 +19,9 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: 开始执行脚本
-        run: echo 打印dsj环境变量
+        run: echo 中青看点分支空执行
       # 运行
-      - name: 运行jar包
-        env:
-          ZQKD_CONFIG: ${{secrets.ZQKD_CONFIG}}
-        run: java -jar zqkd-1.0-SNAPSHOT-all.jar
+#       - name: 运行jar包
+#         env:
+#           ZQKD_CONFIG: ${{secrets.ZQKD_CONFIG}}
+#         run: java -jar zqkd-1.0-SNAPSHOT-all.jar
