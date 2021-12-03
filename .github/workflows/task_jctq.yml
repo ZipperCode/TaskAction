@@ -1,0 +1,36 @@
+<<<<<<< HEAD:.github/workflows/task_kugou.yml
+name: TaskKugou-Master
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ task_kugou ]
+  schedule:
+    - cron: '1 8 * * *'
+=======
+name: 晶彩天气
+on:
+#   push:
+#     branches: [ task_kugou ]
+#   pull_request:
+#     branches: [ task_kugou ]
+  schedule:
+    - cron: '30 8 * * *'
+    
+>>>>>>> bb2007bfcf745837841e3a9ea45d7c6527c50d68:.github/workflows/task_jctq.yml
+jobs:
+  task:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Java 环境
+      - name: 设置Java环境
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+      # 运行
+      - name: 运行jar包
+        env:
+          JCTQ_CONFIG: ${{secrets.JCTQ_CONFIG}}
+        run: java -jar jctq-1.0-SNAPSHOT-all.jar
