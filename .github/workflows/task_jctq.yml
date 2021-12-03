@@ -1,7 +1,8 @@
 name: 晶彩天气
 on:
   schedule:
-    - cron: '30 12,16 * * *'
+      # 0 => 8 4 => 12 10 => 18 
+    - cron: '30 0,10 * * *'
     
 jobs:
   task:
