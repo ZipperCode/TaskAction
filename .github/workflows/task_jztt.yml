@@ -1,4 +1,4 @@
-name: 九章头条
+name: 九章头条-Branch
 on:
 #   push:
 #     branches: [ task_kugou ]
@@ -19,9 +19,9 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: 开始执行脚本
-        run: echo 打印dsj环境变量
+        run: echo 九章头条 task_jztt 分支空执行
       # 运行
       - name: 运行jar包
-        env:
-          JZTT_CONFIG: ${{secrets.JZTT_CONFIG}}
-        run: java -jar jztt-1.0-SNAPSHOT-all.jar
+#         env:
+#           JZTT_CONFIG: ${{secrets.JZTT_CONFIG}}
+#         run: java -jar jztt-1.0-SNAPSHOT-all.jar
