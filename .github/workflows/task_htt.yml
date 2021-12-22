@@ -17,7 +17,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       # 运行
-      - name: 开始执行脚本,运行jar包
-        env:
-          HTT_CONFIG: ${{secrets.HTT_CONFIG}}
-        run: java -jar htt-1.0-SNAPSHOT-all.jar
+#       - name: 开始执行脚本,运行jar包
+#         env:
+#           HTT_CONFIG: ${{secrets.HTT_CONFIG}}
+#         run: java -jar htt-1.0-SNAPSHOT-all.jar
