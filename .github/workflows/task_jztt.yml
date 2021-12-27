@@ -15,7 +15,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       # 运行
-      - name: 运行jar包
-        env:
-          JZTT_CONFIG: ${{secrets.JZTT_CONFIG}}
-        run: java -jar jztt-1.0-SNAPSHOT-all.jar
+#       - name: 运行jar包
+#         env:
+#           JZTT_CONFIG: ${{secrets.JZTT_CONFIG}}
+#         run: java -jar jztt-1.0-SNAPSHOT-all.jar
