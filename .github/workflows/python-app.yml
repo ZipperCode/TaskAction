@@ -1,10 +1,10 @@
 name: 欧朋
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
   schedule:
       # 0 => 8 4 => 12 10 => 18 
     - cron: '10 0 * * *'
