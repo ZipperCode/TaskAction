@@ -27,6 +27,7 @@ with_draw = 1001
 flow = 1002
 send_red_package = 1003
 
+
 class oupeng:
 
     def __init__(self, token):
@@ -239,24 +240,27 @@ class oupeng:
     def drawprizecount(self):
         url = "http://wz.oupeng.com/coin/query/drawprizecount"
         data = "{}"
-        res_data = requests.post(url, headers=get_header_2(self.token), json=data).json()
-        if res_data is not None:
-            redpackrain = res_data['data']['redpackrain']
-            a = redpackrain['amount']
-            t = redpackrain['total']
-            for index in range(0, t):
-                log("红包雨当前次数{0}/{1}".format(index, t))
-                try:
-                    if a == 0:
-                        self.earndrawprizecount(type_read_rain)
-                        delay(5)
-                    coins, rid = self._start_redpackrain()
-                    if coins == 0 and rid == "":
-                        continue
-                    delay(30)
-                    self._redpackrain(rid, coins)
-                except:
-                    pass
+        try:
+            res_data = requests.post(url, headers=get_header_2(self.token), json=data).json()
+            if res_data is not None:
+                redpackrain = res_data['data']['redpackrain']
+                a = redpackrain['amount']
+                t = redpackrain['total']
+                for index in range(0, t):
+                    log("红包雨当前次数{0}/{1}".format(index, t))
+                    try:
+                        if a == 0:
+                            self.earndrawprizecount(type_read_rain)
+                            delay(5)
+                        coins, rid = self._start_redpackrain()
+                        if coins == 0 and rid == "":
+                            continue
+                        delay(30)
+                        self._redpackrain(rid, coins)
+                    except:
+                        pass
+        except:
+            pass
 
     def _start_redpackrain(self):
         url = "http://wz.oupeng.com/coin/start/redpackrain"
@@ -313,14 +317,14 @@ class oupeng:
             if product_list is not None and isinstance(product_list, list):
                 self.account_info()
                 delay(5)
-                sorted(product_list, key=lambda v: v['coinAmount'], reverse=True)
+                sorted(product_list, key=lambda v: v['coinAmount'])
                 for p in product_list:
                     coin_amount = p['coinAmount']
                     if self.user_coin >= coin_amount:
                         url = "http://wz.oupeng.com/coin/withdraw"
                         data = {
                             "productId": p['productId'],
-                            "vendor": 1
+                            "vendor": 4
                         }
                         delay(5)
                         res_data = self.req(url, data)
@@ -335,14 +339,14 @@ class oupeng:
         self.search()
         self.read_news()
         self.drawprizecount()
-        log("任务执行完毕，总获得{0}, 开始执行提现".format(self.reward_coin))
-        self.with_draw()
+        # log("任务执行完毕，总获得{0}, 开始执行提现".format(self.reward_coin))
+        # self.with_draw()
         pass
 
     def req(self, url, data):
         t = time_str()
         nonce = uuid_str()
-        print("data = " + data)
+        print("data = " + str(data))
         payload = json.dumps({
             "data": data,
             "sign": sign(data, t, nonce)
@@ -361,7 +365,6 @@ def delay(second):
 
 
 def log(msg):
-
     print("【欧朋极速版】 >> {0}".format(msg))
 
 
@@ -410,19 +413,27 @@ def get_header_2(token):
     }
 
 
+configs = 'pfQUS078hUxMHww+lqJU11Z8Wq5sGyg/1S/5nv2/vvGZ4+LCP6glhIvEhcMMYdHAcIybWoM/SL7n7BPc4QNbQEWxEZHe2fu0xUBc3tD60UQ='
 if __name__ == "__main__":
-    config = str(os.getenv("OUPENG_CONFIG"))
+    config = str(os.getenv("OUPENG_CONFIG", configs))
     if config is not None and config != "":
-        log("config = " + str(config))
-        config = json.loads(config)
-        if isinstance(config, list):
-            for c in config:
-                token = c['token']
-                oupeng(token).run()
-            pass
-        else:
-            token = config['token']
-            oupeng(token).run()
+        configList = configs.split("@")
+        for config in configList:
+            log("config = " + str(config))
+            oupeng(config).run()
 
-    log("未获取到相关配置信息")
-
+# if __name__ == "__main__":
+#     config = str(os.getenv("OUPENG_CONFIG", json.dumps(configs)))
+#     if config is not None and config != "":
+#         log("config = " + str(config))
+#         config = json.loads(config)
+#         if isinstance(config, list):
+#             for c in config:
+#                 token = c['token']
+#                 oupeng(token).run()
+#             pass
+#         else:
+#             token = config['token']
+#             oupeng(token).run()
+# 
+#     log("未获取到相关配置信息")
