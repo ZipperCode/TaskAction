@@ -2,7 +2,7 @@ name: 晶彩看点
 on:
   schedule:
       # 0 => 8 4 => 12 10 => 18 
-    - cron: '10 0,10 * * *'
+    - cron: '10 0,10 * * 1'
 jobs:
   task:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       # 运行
-      - name: 开始执行脚本,运行jar包
-        env:
-          JCTQ_CONFIG: ${{secrets.JCTQ_CONFIG}}
-        run: java -jar jckd-1.0-SNAPSHOT-all.jar
+#       - name: 开始执行脚本,运行jar包
+#         env:
+#           JCTQ_CONFIG: ${{secrets.JCTQ_CONFIG}}
+#         run: java -jar jckd-1.0-SNAPSHOT-all.jar
