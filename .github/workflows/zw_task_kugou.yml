@@ -22,4 +22,4 @@ jobs:
       - name: 运行jar包1
         env:
           KG_CONFIG: ${{secrets.ZW_KUGOU_CONFIG}}
-        run: java -jar kugou-1.0-SNAPSHOT-all.jar
+        run: java -jar kugou-1.1-SNAPSHOT-all.jar
